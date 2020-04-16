@@ -69,7 +69,15 @@
           "specialCharacters": confirm('Would you like special characters in your password?'),
       };
 
+      while( options.lowercase === false && options.uppercase === false && 
+            options.numeric === false && options.specialCharacters === false){
 
+              alert("At least one of the following must be selected to proceed:");
+              options.lowercase = confirm('Would you like lowercase letters in your password?');
+              options.uppercase = confirm('Would you like uppercase letters in your password?');
+              options.numeric = confirm('Would you like numbers in your password?');
+              options.specialCharacters = confirm('Would you like special characters in your password?');
+      }
 
       console.log( options );
       //Validate confirguration

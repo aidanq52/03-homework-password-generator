@@ -29,6 +29,92 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+
+      var passwordLength = 0,
+          lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
+          uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+          numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9 , 0];
+          specialCharacters = ['!','@','#','$','%','^','&','*','(',')','-','_','+','='];
+
+      //Series of prompts 
+
+      //Prompt the user for the length of the password taht they want to generate
+
+
+      function isPasswordLengthCorrect( passwordLength ){
+
+          return passwordLength >= 8 && passwordLength <= 128;
+      }
+      //while password length is not correct
+      while ( ! isPasswordLengthCorrect( passwordLength ) ){
+
+      passwordLength = parseInt(prompt ( 'Provide a password length between 8 and 128'));
+
+      }
+
+      console.log(passwordLength);
+
+      //Prompt user for a series of configuration optinos, lowercase, uppercase, numeric, and/or special characters
+      // var lowercase = confirm('Would you like lowercase letters in your password?');
+      // var uppercase = confirm('Would you like uppercase letters in your password?');
+      // var numeric = confirm('Would you like numbers in your password?');
+      // var specialCharacters = confirm('Would you like special characters letters in your password?');
+
+      var options = {
+          "passwordLength": passwordLength,
+          "lowercase": confirm('Would you like lowercase letters in your password?'),
+          "uppercase": confirm('Would you like uppercase letters in your password?'),
+          "numeric": confirm('Would you like numbers in your password?'),
+          "specialCharacters": confirm('Would you like special characters in your password?'),
+      };
+
+
+
+      console.log( options );
+      //Validate confirguration
+
+      //Generate password
+      function generatePassword ( options ){
+          
+          var password = '';
+              possibleCharacters = [];
+
+
+          if( options.lowercase ){
+
+              possibleCharacters = possibleCharacters.concat(lowercase)
+
+          }
+
+          if ( options.uppercase ){
+
+              possibleCharacters = possibleCharacters.concat(uppercase)
+
+          }
+
+          if ( options.numeric ){
+
+              possibleCharacters = possibleCharacters.concat(numeric)
+
+          }
+
+          if ( options.specialCharacters ) {
+              
+              possibleCharacters = possibleCharacters.concat(specialCharacters)
+          
+          }
+          
+          console.log( possibleCharacters );
+
+          return password;
+
+      }
+
+      console.log( generatePassword( options ) );
+
+
+      
+    </script>
   </body>
 </html>

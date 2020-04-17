@@ -87,40 +87,63 @@
           
           var password = '';
               possibleCharacters = [];
+              requiredCharacters = [];
 
 
           if( options.lowercase ){
 
-              possibleCharacters = possibleCharacters.concat(lowercase)
+              possibleCharacters = possibleCharacters.concat(lowercase);
+
+              requiredCharacters.push( lowercase[Math.floor( Math.random()* lowercase.length )] );
 
           }
 
           if ( options.uppercase ){
 
-              possibleCharacters = possibleCharacters.concat(uppercase)
+              possibleCharacters = possibleCharacters.concat(uppercase);
+
+              requiredCharacters.push( uppercase[Math.floor( Math.random()* uppercase.length )] );
+
 
           }
 
           if ( options.numeric ){
 
-              possibleCharacters = possibleCharacters.concat(numeric)
+              possibleCharacters = possibleCharacters.concat(numeric);
+
+              requiredCharacters.push( numeric[Math.floor( Math.random()* numeric.length )] );
+
 
           }
 
           if ( options.specialCharacters ) {
               
-              possibleCharacters = possibleCharacters.concat(specialCharacters)
+              possibleCharacters = possibleCharacters.concat(specialCharacters);
+
+              requiredCharacters.push( specialCharacters[Math.floor( Math.random()* specialCharacters.length )] );
           
           }
-          
+
+          for( var i = 0; i < options.passwordLength; i++ ){
+
+            if( requiredCharacters[i]) {
+
+              password += requiredCharacters[i];
+
+            } else{
+            password  += possibleCharacters[ Math.floor( Math.random()* possibleCharacters.length ) ];
+          }
+           
+          }
+
+          console.log( password );
           console.log( possibleCharacters );
 
           return password;
 
       }
 
-      console.log( generatePassword( options ) );
-
+      generatePassword(options)
 
       
     </script>

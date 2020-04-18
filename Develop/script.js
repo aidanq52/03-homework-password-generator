@@ -19,7 +19,7 @@ function startNewPassword() {
 
     while ( ! isPasswordLengthCorrect( passwordLength ) ){
 
-    passwordLength = parseInt(prompt ( 'Choose a password length between 8 and 128'));
+    passwordLength = parseInt(prompt ( 'Choose a password length between 8 and 128 characters'));
 
     };
 

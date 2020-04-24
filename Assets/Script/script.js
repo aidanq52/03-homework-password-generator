@@ -5,11 +5,9 @@ var lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'
     button = document.getElementById("generate"),
     textArea = document.getElementById("password");
 
-console.log( button )
 
 function startNewPassword() {
     var passwordLength = 0;
-
 
     function isPasswordLengthCorrect( passwordLength ){
 
